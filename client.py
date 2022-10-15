@@ -11,11 +11,6 @@ from time import sleep
 import platform #get info over computer
 import time
 
-try:
-    from tkinter import Tk  # Python 3
-    tkinter_installed = True
-except:
-    tkinter_installed = False
 
 host = '192.168.178.44'  # 127.0.0.1 - 192.168.178.44
 port = 12345
