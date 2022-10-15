@@ -49,6 +49,27 @@ def obfuscator():
         with open(f"obfuscated-{file}", 'w') as f:
             f.write(obf_code)
             print(obf_code)
+    elif mode == "5":
+        loop_obf = int(input("how many times should it get obfuscated?"))
+        code_bytes = code.encode()
+        base64_bytes = base64.b64encode(code_bytes)
+        b64_code = base64_bytes.decode()
+        b64_code = b64_code.replace('"""', "'''")
+        b64_code = b64_code.replace("m", "#hoafhoiawgfzoaw#")
+        b64_code = b64_code.replace("b", "#zagflwibgaizwfglajfblaw#")
+        obf_code = 'import base64\ncode = (b"""' + b64_code + '""")\nexec(base64.b64decode(code.replace(b"#hoafhoiawgfzoaw#", b"m").replace(b"#zagflwibgaizwfglajfblaw#", b"b")))'
+        for i in range(loop_obf - 1):
+            code_bytes = obf_code.encode()
+            base64_bytes = base64.b64encode(code_bytes)
+            b64_code = base64_bytes.decode()
+            b64_code = b64_code.replace('"""', "'''")
+            b64_code = b64_code.replace("m", "#hoafhoiawgfzoaw#")
+            b64_code = b64_code.replace("b", "#zagflwibgaizwfglajfblaw#")
+            obf_code = 'import base64\ncode = (b"""' + b64_code + '""")\nexec(base64.b64decode(code.replace(b"#hoafhoiawgfzoaw#", b"m").replace(b"#zagflwibgaizwfglajfblaw#", b"b")))'
+
+        with open(f"obfuscated-{file}", 'w') as f:
+            f.write(obf_code)
+            print(obf_code)
     else:
         print("Error")
 
