@@ -3,8 +3,10 @@ import base64
 def obfuscator():
     file = input("file:\n")
     print("mode 1: base64 encoded code gets decoded while running\n"
-          "mode 2:code gets base64 encoded in string and decoded while running !!code is plain text!!"
-          "\nmode 3: code is 2 times base64 encoded, one time it gets decoded in the string, one time while executing")
+          "mode 2: code gets base64 encoded in string and decoded while running !!code is plain text!!\n"
+          "mode 3: code is 2 times base64 encoded, one time it gets decoded in the string, one time while executing\n"
+          "mode 4: code is 2 times base64 encoded, one time it gets decoded in the string, one time while executing. Some parts are getting replaced with a longer string\n"
+          "mode 5: like mode 4 but recursive")
     mode = input(">>")
     with open(file) as f:
         code = f.read()
